@@ -150,6 +150,10 @@ where
         .build(&event_loop)
         .map_err(Error::WindowCreationFailed)?;
 
+    use winit::dpi::PhysicalPosition;
+    window.set_outer_position(PhysicalPosition::new(500, 500));
+
+
     let (mut sender, receiver) = mpsc::unbounded();
 
     let mut instance = Box::pin(run_instance::<A, E, C>(

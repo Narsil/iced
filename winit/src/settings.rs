@@ -81,6 +81,9 @@ impl Window {
             .with_window_icon(self.icon)
             .with_always_on_top(self.always_on_top)
             .with_fullscreen(conversion::fullscreen(primary_monitor, mode));
+        if mode == Mode::Invisible {
+            window_builder = window_builder.with_visible(false);
+        }
 
         if let Some((width, height)) = self.min_size {
             window_builder = window_builder
