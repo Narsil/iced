@@ -55,6 +55,11 @@ impl<A: Application> State<A> {
         self.background_color
     }
 
+    /// Returns the current mode [`Mode`] of the [`State`].
+    pub fn mode(&self) -> Mode {
+        self.mode
+    }
+
     /// Returns the current [`Viewport`] of the [`State`].
     pub fn viewport(&self) -> &Viewport {
         &self.viewport

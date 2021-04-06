@@ -318,6 +318,9 @@ async fn run_instance<A, E, C>(
                 messages.push(message);
             }
             event::Event::RedrawRequested(_) => {
+                if state.mode() == Mode::Invisible{
+                    continue;
+                }
                 let physical_size = state.physical_size();
 
                 if physical_size.width == 0 || physical_size.height == 0 {
